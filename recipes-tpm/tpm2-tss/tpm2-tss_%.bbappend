@@ -5,6 +5,8 @@ SRC_URI_remove = "https://github.com/tpm2-software/${BPN}/releases/download/${PV
 SRC_URI += "git://github.com/tpm2-software/tpm2-tss.git;branch=master"
 SRCREV = "39e4bfc2041f6a7f271710ff33c17ca13c640465"
 
+PV = "2.4.3"
+
 S = "${WORKDIR}/git"
 
 DEPENDS += "json-c curl"
