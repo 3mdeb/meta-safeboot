@@ -9,11 +9,13 @@ PV = "5.0.0"
 
 DEPENDS += "binutils gnu-efi util-linux pkgconfig"
 
-inherit autotools-brokensep
+inherit autotools pkgconfig bash-completion autotools-brokensep
 
-do_configure_prepend() {
-    (  cd ${S}
-    ${S}/bootstrap)
+do_configure_prepend () {
+    currentdir=$(pwd)
+    cd ${S}
+    AUTORECONF=true ./bootstrap
+    cd ${currentdir}
 }
 
 do_install_append() {
