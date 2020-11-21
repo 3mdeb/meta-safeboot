@@ -11,7 +11,7 @@ DEPENDS += "binutils gnu-efi util-linux pkgconfig"
 
 inherit autotools pkgconfig bash-completion autotools-brokensep
 
-do_configure_prepend () {
+do_configure_prepend() {
     currentdir=$(pwd)
     cd ${S}
     AUTORECONF=true ./bootstrap
