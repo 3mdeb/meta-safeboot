@@ -33,10 +33,10 @@ index 1459e91..3e34c8d 100644
  # no consistent view of where gnu-efi should dump the efi stuff, so find it
  ##
 -for path in /lib /lib64 /usr/lib /usr/lib64 /usr/lib32 /lib/efi /lib64/efi /usr/lib/efi /usr/lib64/efi /usr/lib/gnuefi /usr/lib64/gnuefi ; do
-+for path in ../recipe-sysroot/lib ../recipe-sysroot/lib64 ../recipe-sysroot/usr/lib \
-+            ../recipe-sysroot/usr/lib64 ../recipe-sysroot/usr/lib32 \
-+            ../recipe-sysroot/lib/efi ../recipe-sysroot/lib64/efi \
-+            ../recipe-sysroot/usr/lib/efi ../recipe-sysroot/usr/lib64/efi; do
++for path in $SYSROOT/lib $SYSROOT/lib64 $SYSROOT/usr/lib \
++            $SYSROOT/usr/lib64 $SYSROOT/usr/lib32 \
++            $SYSROOT/lib/efi $SYSROOT/lib64/efi \
++            $SYSROOT/usr/lib/efi $SYSROOT/usr/lib64/efi; do
      if test -e $path/crt0-efi-$EFI_ARCH.o; then
         CRTPATH=$path
      fi
@@ -45,7 +45,7 @@ index 1459e91..3e34c8d 100644
  fi
  
 -EFI_CPPFLAGS="-I/usr/include/efi -I/usr/include/efi/$EFI_ARCH \
-+EFI_CPPFLAGS="-I../recipe-sysroot/usr/include/efi -I../recipe-sysroot/usr/include/efi/$EFI_ARCH \
++EFI_CPPFLAGS="-I$SYSROOT/usr/include/efi -I$SYSROOT/usr/include/efi/$EFI_ARCH \
   -DEFI_FUNCTION_WRAPPER"
  CPPFLAGS_save="$CPPFLAGS"
  CPPFLAGS="$CPPFLAGS $EFI_CPPFLAGS"

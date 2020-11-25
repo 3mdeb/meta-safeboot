@@ -9,8 +9,8 @@ SRC_URI = "git://github.com/osresearch/sbsigntools.git;branch=master;name=sbsign
            file://disable-man-page-creation.patch \
 "
 
-SRCREV_sbsigntools  ?= "370abb7c49ec2a600f64fcbd441d9297124a5cb7"
-SRCREV_ccan         ?= "b1f28e17227f2320d07fe052a8a48942fe17caa5"
+SRCREV_sbsigntools  = "370abb7c49ec2a600f64fcbd441d9297124a5cb7"
+SRCREV_ccan         = "b1f28e17227f2320d07fe052a8a48942fe17caa5"
 SRCREV_FORMAT       =  "sbsigntools_ccan"
 PV = "v0.9.4+git"
 
@@ -21,6 +21,8 @@ BBCLASSEXTEND = "native"
 DEPENDS = "binutils openssl gnu-efi util-linux pkgconfig"
 
 S = "${WORKDIR}/git"
+
+EXTRA_OECONF = "SYSROOT=../recipe-sysroot"
 
 do_configure() {
     OLD_CC="${CC}"
