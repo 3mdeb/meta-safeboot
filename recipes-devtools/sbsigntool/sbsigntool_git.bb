@@ -40,7 +40,7 @@ do_configure() {
     oe_runconf
 }
 
-do_install_append() {
+do_install:append() {
     install -d ${D}${sbindir}
     install -m 755 ${D}${bindir}/sbsign ${D}${sbindir}/sbsign.safeboot
 }

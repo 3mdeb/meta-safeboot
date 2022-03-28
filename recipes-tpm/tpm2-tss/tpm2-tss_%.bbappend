@@ -11,7 +11,7 @@ S = "${WORKDIR}/git"
 
 DEPENDS += "json-c curl"
 
-do_configure_prepend() {
+do_configure:prepend() {
     (  cd ${S}
     ${S}/bootstrap)
 }
