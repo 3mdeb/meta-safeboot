@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://${WORKDIR}/git/LICENSE.txt;md5=b234ee4d69f5fce4486a80
 
 SRC_URI = "git://github.com/osresearch/safeboot.git;protocol=https;branch=master;"
 
-SRCREV = "0992882728911e81a75605c049de1f1941c49c57"
+SRCREV = "fd0aef40912948711986e2e4132c4ba8e30e170d"
 
 S = "${WORKDIR}/git"
 CFLAGS += "-I${WORKDIR}/recipe-sysroot/usr/include \
